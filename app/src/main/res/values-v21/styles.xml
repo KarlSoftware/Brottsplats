@@ -1,0 +1,22 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="AppTheme" parent="android:Theme.Material.Light">
+        <item name="android:actionBarStyle">@style/ActionBar</item>
+        <item name="android:colorPrimaryDark">@color/blue_700</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="ActionBar" parent="android:Widget.ActionBar">
+        <item name="android:background">@color/blue_500_transparent</item>
+        <item name="android:icon">@android:color/transparent</item>
+        <item name="android:titleTextStyle">@style/ActionBar.TitleText</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="ActionBar.TitleText" parent="android:TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+</resources>
