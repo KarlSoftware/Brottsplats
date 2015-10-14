@@ -31,6 +31,7 @@ import android.widget.ListView;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.CameraPosition;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.ikimuhendis.ldrawer.ActionBarDrawerToggle;
 
 import se.brottsplats.brottsplats.R;
@@ -44,18 +45,26 @@ import com.google.maps.android.clustering.ClusterManager;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.Toast;
 
+import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import java.util.Random;
+import java.util.Scanner;
 
-import se.brottsplats.brottsplats.utils.GeoCode;
+import se.brottsplats.brottsplats.utils.County;
 import se.brottsplats.brottsplats.utils.MapMarker;
 import se.brottsplats.brottsplats.utils.Values;
 
 import com.google.maps.android.clustering.view.DefaultClusterRenderer;
 import com.ikimuhendis.ldrawer.DrawerArrowDrawable;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
- *
  * @author Jimmy Maksymiw
  */
 public class MapActivity extends FragmentActivity {
@@ -70,6 +79,7 @@ public class MapActivity extends FragmentActivity {
     private String header = "Brottsplats - Hela Sverige";
     private GoogleMap mMap;
     private CameraPosition cameraPosition;
+    private HashMap<String, County> counties;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -111,6 +121,8 @@ public class MapActivity extends FragmentActivity {
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
         setNavMenu();
+        readCountyBoundsFromFile();
+//        printMap(counties);
     }
 
     @Override
@@ -122,7 +134,8 @@ public class MapActivity extends FragmentActivity {
             getMap().moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             cameraPosition = null;
         } else {
-            getMap().moveCamera(CameraUpdateFactory.newLatLngZoom(GeoCode.SVERIGE, GeoCode.ZOOM_SVERIGE));
+
+            getMap().moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(62.99639794287849, 17.56499793380499), 5));
         }
 
         if (mapMarkers != null) {
@@ -172,7 +185,6 @@ public class MapActivity extends FragmentActivity {
         cameraPosition = new CameraPosition(latLng, savedInstanceState.getFloat("zoom"), savedInstanceState.getFloat("tilt"), savedInstanceState.getFloat("bearing"));
 
         mapMarkers = savedInstanceState.getParcelableArrayList("mapmarkers");
-
         super.onRestoreInstanceState(savedInstanceState);
     }
 
@@ -214,6 +226,9 @@ public class MapActivity extends FragmentActivity {
             getMap().setOnCameraChangeListener(mClusterManager);
             getMap().setOnMarkerClickListener(mClusterManager);
             getMap().setOnInfoWindowClickListener(mClusterManager);
+            getMap().getUiSettings().setCompassEnabled(false);
+            getMap().getUiSettings().setRotateGesturesEnabled(false);
+            getMap().getUiSettings().setZoomControlsEnabled(true);
         }
     }
 
@@ -231,19 +246,25 @@ public class MapActivity extends FragmentActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 Toast.makeText(getApplicationContext(), menuAdapter.getItem(position), Toast.LENGTH_SHORT).show();
+
 
                 switch (position) {
                     case 0:
-                        header = "Brottsplats - Hela Sverige";
-                        mDrawerLayout.closeDrawer(GravityCompat.START);
-                        getMap().animateCamera(CameraUpdateFactory.newLatLngZoom(GeoCode.SVERIGE, GeoCode.ZOOM_SVERIGE));
+                        County county = counties.get("Sverige");
+                        header = "Brottsplats - " + county.getName();
+                        LatLngBounds bounds = new LatLngBounds(county.getSouthwest(), county.getNortheast());
 
+                        getMap().animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 0));
+
+                        mDrawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case 1:
                         setNavArea();
                         break;
                     case 2:
+                        //Todo, activity startas om...
                         mDrawerLayout.closeDrawer(GravityCompat.START);
                         Intent share = new Intent(Intent.ACTION_SEND);
                         share.setType("text/plain");
@@ -251,7 +272,7 @@ public class MapActivity extends FragmentActivity {
                         share.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
                         share.putExtra(Intent.EXTRA_TEXT,
                                 "GitHub Page :  https://github.com/JimmyMaksymiw\n" + getPackageName());
-                        startActivity(Intent.createChooser(share,  getString(R.string.app_name)));
+                        startActivity(Intent.createChooser(share, getString(R.string.app_name)));
                         break;
                     case 3:
                         mDrawerLayout.closeDrawer(GravityCompat.START);
@@ -262,7 +283,6 @@ public class MapActivity extends FragmentActivity {
         });
     }
 
-    //TODO Göra på något bra sätt så man slipper switch???
     public void setNavArea() {
 
         final ArrayAdapter<String> areaAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, Values.MENU_VALUES_AREAS);
@@ -270,25 +290,56 @@ public class MapActivity extends FragmentActivity {
         mAreaList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
                 if (position > 0) {
-                    header = "Brottsplats - " + areaAdapter.getItem(position);
+                    County county = counties.get(areaAdapter.getItem(position));
+                    header = "Brottsplats - " + county.getName();
+                    LatLngBounds bounds = new LatLngBounds(county.getSouthwest(), county.getNortheast());
+
+                    getMap().animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 0));
+                    Toast.makeText(getApplicationContext(), county.getName() + "\n" + county.getLink(), Toast.LENGTH_SHORT).show();
+
                     mDrawerLayout.closeDrawer(GravityCompat.START);
+                } else {
+                    setNavMenu();
+                    Toast.makeText(getApplicationContext(), areaAdapter.getItem(position), Toast.LENGTH_SHORT).show();
                 }
 
-                Toast.makeText(getApplicationContext(), areaAdapter.getItem(position), Toast.LENGTH_SHORT).show();
-
-                switch (areaAdapter.getItem(position)) {
-                    case "< Tillbaka":
-                        setNavMenu();
-                        break;
-                    case "Skåne":
-                        getMap().animateCamera(CameraUpdateFactory.newLatLngZoom(GeoCode.SKANE, GeoCode.ZOOM_SKANE));
-                        break;
-
-                    default:
-                }
             }
         });
+    }
+
+
+    private void printMap(HashMap<String, County> map) {
+        Iterator it = map.entrySet().iterator();
+        while (it.hasNext()) {
+            Map.Entry pair = (Map.Entry) it.next();
+            County county = (County) pair.getValue();
+            System.out.println(pair.getKey() + " = " + county.getName() + " nw: " + county.getNortheast().toString() + " sw: " + county.getSouthwest().toString());
+        }
+
+    }
+
+    private void readCountyBoundsFromFile() {
+        try {
+            InputStream inputStream = getResources().openRawResource(R.raw.counties_geocode_bounds);
+            HashMap<String, County> items = new HashMap<>();
+            String json = new Scanner(inputStream).useDelimiter("\\A").next();
+            JSONArray array = new JSONArray(json);
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject object = array.getJSONObject(i);
+                String county = object.getString("county");
+                String link = object.getString("link");
+                JSONObject tmp = object.getJSONObject("southwest");
+                LatLng southwest = new LatLng(tmp.getDouble("lat"), tmp.getDouble("lng"));
+                object = object.getJSONObject("northeast");
+                LatLng northeast = new LatLng(object.getDouble("lat"), object.getDouble("lng"));
+                items.put(county, new County(county, link, southwest, northeast));
+            }
+            this.counties = items;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -332,7 +383,6 @@ public class MapActivity extends FragmentActivity {
     private double random(double min, double max) {
         return new Random().nextDouble() * (max - min) + min;
     }
-
 
     /**
      * Privat klass för att ändra markören på kartan, dvs lägga till en inforuta.

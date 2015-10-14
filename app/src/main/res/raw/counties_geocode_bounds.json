@@ -1,0 +1,266 @@
+[
+  {
+    "southwest": {
+      "lng": 10.9631866,
+      "lat": 55.3367024
+    },
+    "county": "Sverige",
+    "link": "/handelser/helasverige",
+    "northeast": {
+      "lng": 24.1668092,
+      "lat": 69.0599709
+    }
+  },
+  {
+    "southwest": {
+      "lng": 14.3528851,
+      "lat": 55.9901428
+    },
+    "county": "Blekinges län",
+    "link": "/handelser/blekinge",
+    "northeast": {
+      "lng": 16.0679243,
+      "lat": 56.5022141
+    }
+  },
+  {
+    "southwest": {
+      "lng": 12.1331131,
+      "lat": 59.852169
+    },
+    "county": "Dalarnas län",
+    "link": "/handelser/dalarna",
+    "northeast": {
+      "lng": 16.739265,
+      "lat": 62.28024099999999
+    }
+  },
+  {
+    "southwest": {
+      "lng": 17.9564368,
+      "lat": 56.9048659
+    },
+    "county": "Gotlands län",
+    "link": "/handelser/gotland",
+    "northeast": {
+      "lng": 19.3501404,
+      "lat": 58.3987317
+    }
+  },
+  {
+    "southwest": {
+      "lng": 14.459403,
+      "lat": 60.201385
+    },
+    "county": "Gävleborgs län",
+    "link": "/handelser/gavleborg",
+    "northeast": {
+      "lng": 17.6414757,
+      "lat": 62.37083
+    }
+  },
+  {
+    "southwest": {
+      "lng": 11.8689446,
+      "lat": 56.324419
+    },
+    "county": "Hallands län",
+    "link": "/handelser/halland",
+    "northeast": {
+      "lng": 13.7176809,
+      "lat": 57.5731741
+    }
+  },
+  {
+    "southwest": {
+      "lng": 11.9688662,
+      "lat": 61.569695
+    },
+    "county": "Jämtlands län",
+    "link": "/handelser/jamtland",
+    "northeast": {
+      "lng": 17.0648909,
+      "lat": 65.073133
+    }
+  },
+  {
+    "southwest": {
+      "lng": 13.0688452,
+      "lat": 56.885171
+    },
+    "county": "Jönköpings län",
+    "link": "/handelser/jonkoping",
+    "northeast": {
+      "lng": 15.6562501,
+      "lat": 58.153372
+    }
+  },
+  {
+    "southwest": {
+      "lng": 15.3360812,
+      "lat": 56.1941934
+    },
+    "county": "Kalmar län",
+    "link": "/handelser/kalmar",
+    "northeast": {
+      "lng": 17.1506084,
+      "lat": 58.141144
+    }
+  },
+  {
+    "southwest": {
+      "lng": 13.2767319,
+      "lat": 56.35664389999999
+    },
+    "county": "Kronobergs län",
+    "link": "/handelser/kronoberg",
+    "northeast": {
+      "lng": 15.844141,
+      "lat": 57.238187
+    }
+  },
+  {
+    "southwest": {
+      "lng": 15.3723748,
+      "lat": 65.06063499999999
+    },
+    "county": "Norrbottens län",
+    "link": "/handelser/norrbotten",
+    "northeast": {
+      "lng": 24.1624078,
+      "lat": 69.06307199999999
+    }
+  },
+  {
+    "southwest": {
+      "lng": 12.445567,
+      "lat": 55.33668249999999
+    },
+    "county": "Skånes län",
+    "link": "/handelser/skane",
+    "northeast": {
+      "lng": 14.5844781,
+      "lat": 56.54260590000001
+    }
+  },
+  {
+    "southwest": {
+      "lng": 17.2375371,
+      "lat": 58.7356979
+    },
+    "county": "Stockholms län",
+    "link": "/handelser/stockholm",
+    "northeast": {
+      "lng": 19.3499043,
+      "lat": 60.2557827
+    }
+  },
+  {
+    "southwest": {
+      "lng": 15.5932,
+      "lat": 58.56213729999999
+    },
+    "county": "Södermanlands län",
+    "link": "/handelser/sodermanland",
+    "northeast": {
+      "lng": 17.7453121,
+      "lat": 59.5228374
+    }
+  },
+  {
+    "southwest": {
+      "lng": 16.678336,
+      "lat": 59.4050129
+    },
+    "county": "Uppsala län",
+    "link": "/handelser/uppsala",
+    "northeast": {
+      "lng": 18.7711579,
+      "lat": 60.7313874
+    }
+  },
+  {
+    "southwest": {
+      "lng": 11.681877,
+      "lat": 58.83082580000001
+    },
+    "county": "Värmlands län",
+    "link": "/handelser/varmland",
+    "northeast": {
+      "lng": 14.48975,
+      "lat": 61.06945409999999
+    }
+  },
+  {
+    "southwest": {
+      "lng": 14.2568099,
+      "lat": 63.4054636
+    },
+    "county": "Västerbottens län",
+    "link": "/handelser/vasterbotten",
+    "northeast": {
+      "lng": 21.6169479,
+      "lat": 66.340329
+    }
+  },
+  {
+    "southwest": {
+      "lng": 14.776302,
+      "lat": 62.13979099999999
+    },
+    "county": "Västernorrlands län",
+    "link": "/handelser/vasternorrland",
+    "northeast": {
+      "lng": 19.2867079,
+      "lat": 64.00223489999999
+    }
+  },
+  {
+    "southwest": {
+      "lng": 15.41747,
+      "lat": 59.23274860000001
+    },
+    "county": "Västmanlands län",
+    "link": "/handelser/vastmanland",
+    "northeast": {
+      "lng": 16.9458588,
+      "lat": 60.1906571
+    }
+  },
+  {
+    "southwest": {
+      "lng": 10.9631866,
+      "lat": 57.14008
+    },
+    "county": "Västra Götalands län",
+    "link": "/handelser/vastragotaland",
+    "northeast": {
+      "lng": 14.7148173,
+      "lat": 59.26203409999999
+    }
+  },
+  {
+    "southwest": {
+      "lng": 14.243871,
+      "lat": 58.656611
+    },
+    "county": "Örebro län",
+    "link": "/handelser/orebro",
+    "northeast": {
+      "lng": 15.7880099,
+      "lat": 60.1056601
+    }
+  },
+  {
+    "southwest": {
+      "lng": 14.5409236,
+      "lat": 57.702259
+    },
+    "county": "Östergötalands län",
+    "link": "/handelser/ostergotaland",
+    "northeast": {
+      "lng": 17.0853315,
+      "lat": 59.01996210000001
+    }
+  }
+]
