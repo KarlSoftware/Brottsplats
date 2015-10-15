@@ -19,21 +19,28 @@ package se.brottsplats.brottsplats.activities;
 import android.app.ActionBar;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
 import android.support.v4.view.GravityCompat;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
 import com.ikimuhendis.ldrawer.ActionBarDrawerToggle;
 
+import se.brottsplats.brottsplats.DownloadFileTask;
 import se.brottsplats.brottsplats.R;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -43,6 +50,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.maps.android.clustering.ClusterManager;
 
 import android.support.v4.widget.DrawerLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.InputStream;
@@ -52,6 +60,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 
 import se.brottsplats.brottsplats.utils.County;
 import se.brottsplats.brottsplats.utils.MapMarker;
@@ -80,6 +89,7 @@ public class MapActivity extends FragmentActivity {
     private GoogleMap mMap;
     private CameraPosition cameraPosition;
     private HashMap<String, County> counties;
+    private String ipAddress = "http://192.168.1.10:4567";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -229,6 +239,36 @@ public class MapActivity extends FragmentActivity {
             getMap().getUiSettings().setCompassEnabled(false);
             getMap().getUiSettings().setRotateGesturesEnabled(false);
             getMap().getUiSettings().setZoomControlsEnabled(true);
+            mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+                //todo inte visa någon inforuta när man trycker på ett kluster
+                @Override
+                public View getInfoWindow(Marker arg0) {
+                    return null;
+                }
+
+                @Override
+                public View getInfoContents(Marker marker) {
+
+                    LinearLayout info = new LinearLayout(getApplicationContext());
+                    info.setOrientation(LinearLayout.VERTICAL);
+
+                    TextView title = new TextView(getApplicationContext());
+                    title.setTextColor(Color.BLACK);
+                    title.setGravity(Gravity.CENTER);
+                    title.setTypeface(null, Typeface.BOLD);
+                    title.setText(marker.getTitle());
+
+                    TextView snippet = new TextView(getApplicationContext());
+                    snippet.setGravity(Gravity.CENTER);
+                    snippet.setTextColor(Color.GRAY);
+                    snippet.setText(marker.getSnippet());
+
+                    info.addView(title);
+                    info.addView(snippet);
+
+                    return info;
+                }
+            });
         }
     }
 
@@ -257,7 +297,6 @@ public class MapActivity extends FragmentActivity {
                         LatLngBounds bounds = new LatLngBounds(county.getSouthwest(), county.getNortheast());
 
                         getMap().animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 0));
-
                         mDrawerLayout.closeDrawer(GravityCompat.START);
                         break;
                     case 1:
@@ -271,7 +310,7 @@ public class MapActivity extends FragmentActivity {
                         share.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         share.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name));
                         share.putExtra(Intent.EXTRA_TEXT,
-                                "GitHub Page :  https://github.com/JimmyMaksymiw\n" + getPackageName());
+                                "GitHub Page :  https://github.com/JimmyMaksymiw/Brottsplats\n" + getPackageName());
                         startActivity(Intent.createChooser(share, getString(R.string.app_name)));
                         break;
                     case 3:
@@ -295,6 +334,19 @@ public class MapActivity extends FragmentActivity {
                     County county = counties.get(areaAdapter.getItem(position));
                     header = "Brottsplats - " + county.getName();
                     LatLngBounds bounds = new LatLngBounds(county.getSouthwest(), county.getNortheast());
+
+//                    AsyncTask<String, Integer, JSONArray> d = new DownloadFileTask().execute(ipAddress + county.getLink());
+
+//                    try {
+//                        JSONArray j = d.get();
+//                        for (int i = 0; i < j.length(); i++) {
+//
+//                            JSONObject obj = (JSONObject) j.get(i);
+//                            System.out.println(obj.getString("title"));
+//                        }
+//                    } catch (InterruptedException | JSONException | ExecutionException e) {
+//                        e.printStackTrace();
+//                    }
 
                     getMap().animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 0));
                     Toast.makeText(getApplicationContext(), county.getName() + "\n" + county.getLink(), Toast.LENGTH_SHORT).show();
@@ -347,27 +399,27 @@ public class MapActivity extends FragmentActivity {
      */
     private ArrayList<MapMarker> TestItems() {
         ArrayList<MapMarker> mapMarkers = new ArrayList<MapMarker>();
-        mapMarkers.add(new MapMarker(position(), "vart är vi", "här häder saker"));
-        mapMarkers.add(new MapMarker(position(), "HUH??", "waddap"));
-        mapMarkers.add(new MapMarker(position(), "naain", "nej nej nej..."));
-        mapMarkers.add(new MapMarker(position(), "naain", "nej nej nej..."));
-        mapMarkers.add(new MapMarker(position(), "naain", "nej nej nej..."));
-        mapMarkers.add(new MapMarker(position(), "naain", "nej nej nej..."));
-        mapMarkers.add(new MapMarker(position(), "vart är vi", "här häder saker"));
-        mapMarkers.add(new MapMarker(position(), "HUH??", "waddap"));
-        mapMarkers.add(new MapMarker(position(), "naain", "nej nej nej..."));
-        mapMarkers.add(new MapMarker(position(), "naain", "nej nej nej..."));
-        mapMarkers.add(new MapMarker(position(), "vart är vi", "här häder saker"));
-        mapMarkers.add(new MapMarker(position(), "HUH??", "waddap"));
-        mapMarkers.add(new MapMarker(position(), "naain", "nej nej nej..."));
-        mapMarkers.add(new MapMarker(position(), "naain", "nej nej nej..."));
-        mapMarkers.add(new MapMarker(position(), "naain", "nej nej nej..."));
-        mapMarkers.add(new MapMarker(position(), "naain", "nej nej nej..."));
-        mapMarkers.add(new MapMarker(position(), "vart är vi", "här häder saker"));
-        mapMarkers.add(new MapMarker(position(), "HUH??", "waddap"));
-        mapMarkers.add(new MapMarker(position(), "naain", "nej nej nej..."));
-        mapMarkers.add(new MapMarker(position(), "naain", "nej nej nej..."));
+        try {
+            InputStream inputStream = getResources().openRawResource(R.raw.test_skane);
+            String json = new Scanner(inputStream).useDelimiter("\\A").next();
+            JSONArray array = new JSONArray(json);
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject object = array.getJSONObject(i);
 
+
+                JSONObject jsonLocation = object.getJSONObject("Location");
+                LatLng position = new LatLng(jsonLocation.getDouble("lat"), jsonLocation.getDouble("lng"));
+
+
+                String title = object.getString("title");
+                String body = object.getString("description");
+
+                mapMarkers.add(new MapMarker(position, title, body));
+
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         return mapMarkers;
     }
 

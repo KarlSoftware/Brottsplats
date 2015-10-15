@@ -1,0 +1,977 @@
+[
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-15-1942-Trafikolycka-Vellinge/",
+    "description": "Trafikolycka, E6, Skegrie. ",
+    "title": "2015-10-15 19:42, Trafikolycka, Vellinge",
+    "Location": {
+      "lng": 13.0634713,
+      "lat": 55.4151666
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-15-1818-Stoldinbrott-Malmo/",
+    "description": "Inbrott i villa, Bellevue. ",
+    "title": "2015-10-15 18:18, Stöld/inbrott, Malmö",
+    "Location": {
+      "lng": 12.9440223,
+      "lat": 55.5932901
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-15-1832-Trafikolycka-Malmo/",
+    "description": "Personbil och cyklist i olycka, Söderkulla. ",
+    "title": "2015-10-15 18:32, Trafikolycka, Malmö",
+    "Location": {
+      "lng": 13.0162461,
+      "lat": 55.5685991
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-15-1759-Trafikolycka-Lund/",
+    "description": "Två bilar i olycka, Kaprifolievägen.",
+    "title": "2015-10-15 17:59, Trafikolycka, Lund",
+    "Location": {
+      "lng": 13.1812061,
+      "lat": 55.7167512
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-15-1732-Trafikolycka-Malmo/",
+    "description": "Två personbilar i olycka, Frihamnsviadukten.",
+    "title": "2015-10-15 17:32, Trafikolycka, Malmö",
+    "Location": {
+      "lng": 13.0177407,
+      "lat": 55.6100711
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-15-1129-Trafikolycka-singel-Klippan/",
+    "description": "Personbil i diket, Smedjeryd.",
+    "title": "2015-10-15 11:29, Trafikolycka, singel, Klippan",
+    "Location": {
+      "lng": 13.1290409,
+      "lat": 56.1348998      
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-15-1026-Brand-Perstorp/",
+    "description": "Brand i byggnad, Bälinge.",
+    "title": "2015-10-15 10:26, Brand, Perstorp",
+    "Location": {
+      "lng": 13.368744,
+      "lat": 56.2537166
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-15-0923-Trafikolycka-Astorp/",
+    "description": "Lastbil i kollision med bro, Västra vägen.",
+    "title": "2015-10-15 09:23, Trafikolycka, Åstorp",
+    "Location": {
+      "lng": 12.9478899,
+      "lat": 56.1386536
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-15-0535-Brand-Burlov/",
+    "description": "Bilbrand, Badhusvägen.",
+    "title": "2015-10-15 05:35, Brand, Burlöv",
+    "Location": {
+      "lng": 13.0875067,
+      "lat": 55.64195059999999
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-15-0506-Trafikolycka-singel-Malmo/",
+    "description": "Personbil voltar på Lantmannagatan ",
+    "title": "2015-10-15 05:06, Trafikolycka, singel, Malmö",
+    "Location": {
+      "lng": 13.0189113,
+      "lat": 55.5850689
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-15-0206-Trafikolycka-singel-Simrishamn/",
+    "description": "Personbil kör av vägen och voltar",
+    "title": "2015-10-15 02:06, Trafikolycka, singel, Simrishamn",
+    "Location": {
+      "lng": 14.3489651,
+      "lat": 55.5573959
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-2255-Morddrap-Helsingborg/",
+    "description": "Två personer anträffade avlidna Vallåkra.",
+    "title": "2015-10-14 22:55, Mord/dråp, Helsingborg",
+    "Location": {
+      "lng": 12.8574214,
+      "lat": 55.96226249999999
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-2040-Trafikbrott-Malmo/",
+    "description": "Billist mot trafiken på Lorensborgsgatan i Malmö.",
+    "title": "2015-10-14 20:40, Trafikbrott, Malmö",
+    "Location": {
+      "lng": 12.9685392,
+      "lat": 55.5692298
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-1945-Trafikolycka-vilt-Malmo/",
+    "description": "Personbil krockat med vildsvin, Yttre Ringvägen, Malmö.",
+    "title": "2015-10-14 19:45, Trafikolycka, vilt, Malmö",
+    "Location": {
+      "lng": 13.0361034,
+      "lat": 55.5501004
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-1816-Trafikolycka-Kristianstad/",
+    "description": "Trafikolycka, Sandvaktaregatan/Flötevägen, Åhus.",
+    "title": "2015-10-14 18:16, Trafikolycka, Kristianstad",
+    "Location": {
+      "lng": 14.2979949,
+      "lat": 55.9250391
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-1643-Inbrott-Staffanstorp/",
+    "description": "Inbrott i villa, G:a Flackarpsvägen, Uppåkra.",
+    "title": "2015-10-14 16:43, Inbrott, Staffanstorp",
+    "Location": {
+      "lng": 13.1759419,
+      "lat": 55.6787615
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-1644-Ran-vapnat-Malmo/",
+    "description": "Butiksrån, Lugna gatan, Malmö.",
+    "title": "2015-10-14 16:44, Rån väpnat, Malmö",
+    "Location": {
+      "lng": 13.0047011,
+      "lat": 55.5989249
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-1551-Trafikolycka-Landskrona/",
+    "description": "Trafikolycka, Europaväg 6, Landskrona.",
+    "title": "2015-10-14 15:51, Trafikolycka, Landskrona",
+    "Location": {
+      "lng": 12.8300802,
+      "lat": 55.8703477
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-1548-Trafikolycka-Angelholm/",
+    "description": "Trafikolycka/singel, Höja landsväg, Jägersberg.",
+    "title": "2015-10-14 15:48, Trafikolycka, Ängelholm",
+    "Location": {
+      "lng": 12.863881,
+      "lat": 56.245748
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-1450-Trafikolycka-singel-Lund/",
+    "description": "Personbil i kollision med vägräcke, väg 11, Veberöd.",
+    "title": "2015-10-14 14:50, Trafikolycka, singel, Lund",
+    "Location": {
+      "lng": 13.4925345,
+      "lat": 55.6337935
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-1359-Ran-vapnat-Malmo/",
+    "description": "Rån mot butik, Kirseberg.",
+    "title": "2015-10-14 13:59, Rån väpnat, Malmö",
+    "Location": {
+      "lng": 13.0562456,
+      "lat": 55.6108462
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-1311-Arbetsplatsolycka-Ostra-Goinge/",
+    "description": "Arbetsplatsolycka, Broby.",
+    "title": "2015-10-14 13:11, Arbetsplatsolycka, Östra Göinge",
+    "Location": {
+      "lng": 14.0718204,
+      "lat": 56.2543556
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-0939-Trafikolycka-singel-Perstorp/",
+    "description": "Personbil i kollision med vägräcke, väg 21.",
+    "title": "2015-10-14 09:39, Trafikolycka, singel, Perstorp",
+    "Location": {
+      "lng": 13.3949862,
+      "lat": 56.137972
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-0902-Trafikolycka-Malmo/",
+    "description": "Singelolycka, Inre ringvägen, trafikplats Lindeborg.",
+    "title": "2015-10-14 09:02, Trafikolycka, Malmö",
+    "Location": {
+      "lng": 12.9983886,
+      "lat": 55.5653646
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-0758-Trafikolycka-Burlov/",
+    "description": "Två personbilar i kollision, trafikplats Kronetorp.",
+    "title": "2015-10-14 07:58, Trafikolycka, Burlöv",
+    "Location": {
+      "lng": 13.1,
+      "lat": 55.633333
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-0715-Trafikolycka-Lomma/",
+    "description": "Påkörd person, Bjärred.",
+    "title": "2015-10-14 07:15, Trafikolycka, Lomma",
+    "Location": {
+      "lng": 13.0289796,
+      "lat": 55.7173153
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-0726-Trafikolycka-Kristianstad/",
+    "description": "Påkörd person, Näsby.",
+    "title": "2015-10-14 07:26, Trafikolycka, Kristianstad",
+    "Location": {
+      "lng": 14.153544,
+      "lat": 56.05634
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-0336-Inbrott-Hoganas/",
+    "description": "Inbrott i skola, Pål Anders väg.",
+    "title": "2015-10-14 03:36, Inbrott, Höganäs",
+    "Location": {
+      "lng": 12.5656777,
+      "lat": 56.1926105
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-0221-Inbrott-forsok-Helsingborg/",
+    "description": "Försök till inbrott, Dalhem.",
+    "title": "2015-10-14 02:21, Inbrott, försök, Helsingborg",
+    "Location": {
+      "lng": 12.7546067,
+      "lat": 56.068427
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-0451-Inbrott-Sjobo/",
+    "description": "Inbrott i vårdinrättning, Björkvägen.",
+    "title": "2015-10-14 04:51, Inbrott, Sjöbo",
+    "Location": {
+      "lng": 13.7018535,
+      "lat": 55.6268856
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-0401-Inbrott-Sjobo/",
+    "description": "Inbrott i företag, Harlösavägen.",
+    "title": "2015-10-14 04:01, Inbrott, Sjöbo",
+    "Location": {
+      "lng": 13.6688827,
+      "lat": 55.66788829999999
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-0221-Inbrott-Vellinge/",
+    "description": "Inbrott i skola, Norrevångsgatan.",
+    "title": "2015-10-14 02:21, Inbrott, Vellinge",
+    "Location": {
+      "lng": 13.0147903,
+      "lat": 55.4725905
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-0005-Stold-Sjobo/",
+    "description": "Stöld av diesel, Blentarp.",
+    "title": "2015-10-14 00:05, Stöld, Sjöbo",
+    "Location": {
+      "lng": 13.6027103,
+      "lat": 55.5839562
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-14-0026-Djur-skadatomhandertaget-Malmo/",
+    "description": "Vildsvin i centrala Malmö",
+    "title": "2015-10-14 00:26, Djur skadat/omhändertaget, Malmö",
+    "Location": {
+      "lng": 13.003822,
+      "lat": 55.604981
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-2314-Stoldinbrott-Kristianstad/",
+    "description": "Inbrott i livsmedelsaffär, Näsby.",
+    "title": "2015-10-13 23:14, Stöld/inbrott, Kristianstad",
+    "Location": {
+      "lng": 14.153544,
+      "lat": 56.05634
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-2258-Trafikolycka-singel-Svedala/",
+    "description": "Personbil i vägräcke, E65.",
+    "title": "2015-10-13 22:58, Trafikolycka, singel, Svedala",
+    "Location": {
+      "lng": 13.2686393,
+      "lat": 55.5142405
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-2159-Trafikolycka-singel-Staffanstorp/",
+    "description": "Personbil kör av vägen, Hjärup.",
+    "title": "2015-10-13 21:59, Trafikolycka, singel, Staffanstorp",
+    "Location": {
+      "lng": 13.1451845,
+      "lat": 55.6645504
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-2031-Brand-Burlov/",
+    "description": "Brand i byggnad, Arlöv.",
+    "title": "2015-10-13 20:31, Brand, Burlöv",
+    "Location": {
+      "lng": 13.0744097,
+      "lat": 55.6345009
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-1922-Trafikolycka-smitning-fran-Malmo/",
+    "description": "Två personbilar i kollision, Lindeborg.",
+    "title": "2015-10-13 19:22, Trafikolycka, smitning från, Malmö",
+    "Location": {
+      "lng": 12.9895651,
+      "lat": 55.5615988
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-1824-Trafikolycka-singel-Malmo/",
+    "description": "Personbil i kollision med mitträcke, Bernstorp.",
+    "title": "2015-10-13 18:24, Trafikolycka, singel, Malmö",
+    "Location": {
+      "lng": 12.9786351,
+      "lat": 55.5959097
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-1543-Brand-Ystad/",
+    "description": "Rökutveckling, Norra Vallgatan.",
+    "title": "2015-10-13 15:43, Brand, Ystad",
+    "Location": {
+      "lng": 13.8177166,
+      "lat": 55.43190070000001
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-1440-Trafikolycka-Trelleborg/",
+    "description": "Trafikolycka, länsväg 108, Alstad.",
+    "title": "2015-10-13 14:40, Trafikolycka, Trelleborg",
+    "Location": {
+      "lng": 13.2090859,
+      "lat": 55.4538635
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-1326-Trafikolycka-singel-Hassleholm/",
+    "description": "Personbil i kollision med grind, Kaptensgatan.",
+    "title": "2015-10-13 13:26, Trafikolycka, singel, Hässleholm",
+    "Location": {
+      "lng": 13.7507428,
+      "lat": 56.1577602
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-1104-Inbrott-Sjobo/",
+    "description": "Inbrott i villa, Fränninge-Vollsjö.",
+    "title": "2015-10-13 11:04, Inbrott, Sjöbo",
+    "Location": {
+      "lng": 13.8004244,
+      "lat": 55.7219748
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-0953-Rattfylleri-Malmo/",
+    "description": "Misstänkt drograttfylleri, Inre ringvägen, trafikplats Hindby.",
+    "title": "2015-10-13 09:53, Rattfylleri, Malmö",
+    "Location": {
+      "lng": 13.0535784,
+      "lat": 55.59423830000001
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-0656-Ran-Lund/",
+    "description": "Nettobutik rånad i Lund.",
+    "title": "2015-10-13 06:56, Rån, Lund",
+    "Location": {
+      "lng": 13.1910073,
+      "lat": 55.7046601
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-0530-Brand-Trelleborg/",
+    "description": "Bilbrand, Maskingatan.",
+    "title": "2015-10-13 05:30, Brand, Trelleborg",
+    "Location": {
+      "lng": 13.1373707,
+      "lat": 55.3852777
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-0424-Inbrott-Angelholm/",
+    "description": "Inbrott i butik, Ängelholm",
+    "title": "2015-10-13 04:24, Inbrott, Ängelholm",
+    "Location": {
+      "lng": 12.863881,
+      "lat": 56.245748
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-0606-Trafikolycka-personskada-Malmo/",
+    "description": "Trafikolycka på Öresundsbron, mot Danmark",
+    "title": "2015-10-13 06:06, Trafikolycka, personskada, Malmö",
+    "Location": {
+      "lng": 12.8503876,
+      "lat": 55.5703544
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-0552-Trafikolycka-singel-Sjobo/",
+    "description": "Personbil kört in i byggnad, Sövde",
+    "title": "2015-10-13 05:52, Trafikolycka, singel, Sjöbo",
+    "Location": {
+      "lng": 13.6717675,
+      "lat": 55.5852312
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-13-0537-Trafikolycka-singel-Kristianstad/",
+    "description": "Personbil kört in i mitträcke, E 22, Bäckaskog",
+    "title": "2015-10-13 05:37, Trafikolycka, singel, Kristianstad",
+    "Location": {
+      "lng": 14.3356415,
+      "lat": 56.0447167
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-12-1644-Inbrott-Ystad/",
+    "description": "Villainbrott, Svarte.",
+    "title": "2015-10-12 16:44, Inbrott, Ystad",
+    "Location": {
+      "lng": 13.7149065,
+      "lat": 55.4321389
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-12-1710-Trafikolycka-Kristianstad/",
+    "description": "Motorcykel i kollision med stolpe, Östermalm.",
+    "title": "2015-10-12 17:10, Trafikolycka, Kristianstad",
+    "Location": {
+      "lng": 14.1627322,
+      "lat": 56.0319047
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-12-1806-Trafikolycka-Hoor/",
+    "description": "Två personbilar i kollision, Industrigatan.",
+    "title": "2015-10-12 18:06, Trafikolycka, Höör",
+    "Location": {
+      "lng": 13.552376,
+      "lat": 55.9401276
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-12-1642-Trafikolycka-Simrishamn/",
+    "description": "Personbil i kollision med buss, Järrestad.",
+    "title": "2015-10-12 16:42, Trafikolycka, Simrishamn",
+    "Location": {
+      "lng": 14.2866355,
+      "lat": 55.5375197
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-12-1320-Trafikolycka-singel-Hassleholm/",
+    "description": "Singelolycka, väg 21, Tyringe.",
+    "title": "2015-10-12 13:20, Trafikolycka, singel, Hässleholm",
+    "Location": {
+      "lng": 13.6032438,
+      "lat": 56.1594501
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-12-1159-Trafikolycka-Malmo/",
+    "description": "Personbil och cyklist i kollision, Norra Hyllievägen.",
+    "title": "2015-10-12 11:59, Trafikolycka, Malmö",
+    "Location": {
+      "lng": 12.9531429,
+      "lat": 55.57400730000001
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-12-1138-Trafikolycka-Lund/",
+    "description": "Trafikolycka/singel, Assartorp, Genarp.",
+    "title": "2015-10-12 11:38, Trafikolycka, Lund",
+    "Location": {
+      "lng": 13.3340082,
+      "lat": 55.58060889999999
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-12-0948-Inbrott-Kristianstad/",
+    "description": "Inbrott i förråd, Nosaby.",
+    "title": "2015-10-12 09:48, Inbrott, Kristianstad",
+    "Location": {
+      "lng": 14.2,
+      "lat": 56.05
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-12-0954-Trafikolycka-Lomma/",
+    "description": "Flera fordon i kollision, E6, Flädie.",
+    "title": "2015-10-12 09:54, Trafikolycka, Lomma",
+    "Location": {
+      "lng": 13.0287618,
+      "lat": 55.7230721
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-12-0844-Trafikolycka-Kavlinge/",
+    "description": "Trafikolycka, E6, trafikplats Borgeby.",
+    "title": "2015-10-12 08:44, Trafikolycka, Kävlinge",
+    "Location": {
+      "lng": 13.0366784,
+      "lat": 55.7514146
+      }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-12-0550-Trafikolycka-vilt-Helsingborg/",
+    "description": "Viltolycka, väg 111, Hittarp.",
+    "title": "2015-10-12 05:50, Trafikolycka, vilt, Helsingborg",
+    "Location": {
+      "lng": 12.6384939,
+      "lat": 56.09595849999999
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-12-0541-Stold-Malmo/",
+    "description": "Stöld, Lindängsplan.",
+    "title": "2015-10-12 05:41, Stöld, Malmö",
+    "Location": {
+      "lng": 13.0142388,
+      "lat": 55.55992490000001
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-12-0623-Trafikolycka-singel-Kristianstad/",
+    "description": "Singelolycka, Färlöv.",
+    "title": "2015-10-12 06:23, Trafikolycka, singel, Kristianstad",
+    "Location": {
+      "lng": 14.0876548,
+      "lat": 56.0730415
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-12-0045-Inbrott-forsok-Burlov/",
+    "description": "Försök till inbrott på Burlövs Centrum",
+    "title": "2015-10-12 00:45, Inbrott, försök, Burlöv",
+    "Location": {
+      "lng": 13.1,
+      "lat": 55.633333
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-1657-Olaga-hot-Lund/",
+    "description": "Pressinformation angående hotet mot Lunds Universitet",
+    "title": "2015-10-11 16:57, Olaga hot, Lund",
+    "Location": {
+      "lng": 13.203493,
+      "lat": 55.7119483
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-1946-Trafikolycka-Malmo/",
+    "description": "Två personbilar i trafikolycka, Mariedalsvägen, Ribersborg. ",
+    "title": "2015-10-11 19:46, Trafikolycka, Malmö",
+    "Location": {
+      "lng": 12.9821104,
+      "lat": 55.6024877
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-1807-Trafikolycka-Sjobo/",
+    "description": "Personbil i räcket, väg 11, Sjöbo. ",
+    "title": "2015-10-11 18:07, Trafikolycka, Sjöbo",
+    "Location": {
+      "lng": 13.70337,
+      "lat": 55.634822
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-1426-Trafikolycka-Landskrona/",
+    "description": "Personbil i stolpe, Ringvägen/Österleden. ",
+    "title": "2015-10-11 14:26, Trafikolycka, Landskrona",
+    "Location": {
+      "lng": 12.8517577,
+      "lat": 55.8749441
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-1417-Trafikolycka-Horby/",
+    "description": "Två personbilar i mitträcket, E22, Osbyholm.",
+    "title": "2015-10-11 14:17, Trafikolycka, Hörby",
+    "Location": {
+      "lng": 13.6199127,
+      "lat": 55.8530702
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-1311-Trafikolycka-Lund/",
+    "description": "Cyklister i krock, Doppingvägen.",
+    "title": "2015-10-11 13:11, Trafikolycka, Lund",
+    "Location": {
+      "lng": 13.1649986,
+      "lat": 55.7123891
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-1254-Brand-Malmo/",
+    "description": "Brand i trapphus, Trelleborgsgatan.",
+    "title": "2015-10-11 12:54, Brand, Malmö",
+    "Location": {
+      "lng": 13.018053,
+      "lat": 55.5915815
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-0848-Ovrigt-Helsingborg/",
+    "description": "Skyddsjakt av sälar, Domsten och Ängelholm. ",
+    "title": "2015-10-11 08:48, Övrigt, Helsingborg",
+    "Location": {
+      "lng": 12.863881,
+      "lat": 56.245748
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-0834-Stold-Helsingborg/",
+    "description": "Stöld av lastbil, Brunnbäcksgatan. ",
+    "title": "2015-10-11 08:34, Stöld, Helsingborg",
+    "Location": {
+      "lng": 12.7278308,
+      "lat": 56.0183024
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-0625-Stold-Bastad/",
+    "description": "Stulna båtmotorer anträffade.",
+    "title": "2015-10-11 06:25, Stöld, Båstad",
+    "Location": {
+      "lng": 12.8477217,
+      "lat": 56.4273888
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-0145-Rattfylleri-Malmo/",
+    "description": "Rattfylleri, Agnesfridsvägen. ",
+    "title": "2015-10-11 01:45, Rattfylleri, Malmö",
+    "Location": {
+      "lng": 13.051079,
+      "lat": 55.56750539999999
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-0027-Skadegorelse-Tomelilla/",
+    "description": "Skadegörelse på entrédörr, Byavägen. ",
+    "title": "2015-10-11 00:27, Skadegörelse, Tomelilla",
+    "Location": {
+      "lng": 13.9490218,
+      "lat": 55.5413321
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-0517-Skadegorelse-Kristianstad1/",
+    "description": "Brand i bil.",
+    "title": "2015-10-11 05:17, Skadegörelse, Kristianstad",
+    "Location": {
+      "lng": 14.1566778,
+      "lat": 56.0293936
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-0515-Skadegorelse-Helsingborg/",
+    "description": "Brand i parkerad bil.",
+    "title": "2015-10-11 05:15, Skadegörelse, Helsingborg",
+    "Location": {
+      "lng": 12.6945121,
+      "lat": 56.0464674
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-0517-Skadegorelse-Kristianstad/",
+    "description": "Brand i bil.",
+    "title": "2015-10-11 05:17, Skadegörelse, Kristianstad",
+    "Location": {
+      "lng": 14.1566778,
+      "lat": 56.0293936
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-11-0204-Skadegorelse-Kristianstad/",
+    "description": "Brand i bil.",
+    "title": "2015-10-11 02:04, Skadegörelse, Kristianstad",
+    "Location": {}
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-10-2224-Stoldinbrott-Vellinge/",
+    "description": "Inbrott i lagerlokal, Östra Grevie. ",
+    "title": "2015-10-10 22:24, Stöld/inbrott, Vellinge",
+    "Location": {}
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-10-2233-Trafikolycka-Malmo/",
+    "description": "Singelolycka, Inre ringvägen, Hyllie. ",
+    "title": "2015-10-10 22:33, Trafikolycka, Malmö",
+    "Location": {
+      "lng": 12.9952905,
+      "lat": 55.5661557
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-10-2152-Trafikolycka-Helsingborg/",
+    "description": "Två personbilar i olycka, Prins Kristians gata. ",
+    "title": "2015-10-10 21:52, Trafikolycka, Helsingborg",
+    "Location": {}
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-10-2101-Brak-Kristianstad/",
+    "description": "Flertal personer i slagsmål, Kungsvägen, Tollarp. ",
+    "title": "2015-10-10 21:01, Bråk, Kristianstad",
+    "Location": {
+      "lng": 13.9807832,
+      "lat": 55.9321256
+      }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-10-1946-Brand-Angelholm/",
+    "description": "Mopedbrand, Gåsahalsvägen. ",
+    "title": "2015-10-10 19:46, Brand, Ängelholm",
+    "Location": {
+      "lng": 12.8830614,
+      "lat": 56.2414594
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-10-1902-Trafikolycka-Eslov/",
+    "description": "Personbil och moped i olycka, Sturegatan. ",
+    "title": "2015-10-10 19:02, Trafikolycka, Eslöv",
+    "Location": {
+      "lng": 13.2961128,
+      "lat": 55.8358686
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-10-1618-Sedlighetsbrott-Angelholm/",
+    "description": "Person sexuellt ofredad, Danielslund. ",
+    "title": "2015-10-10 16:18, Sedlighetsbrott, Ängelholm",
+    "Location": {
+      "lng": 12.863881,
+      "lat": 56.245748
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-10-0656-Ovrigt-Skane/",
+    "description": "Ingen pressinformatör i tjänst lördag dagpass på grund av sjukdom.",
+    "title": "2015-10-10 06:56, Övrigt, Skåne",
+    "Location": {}
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-10-0323-Stoldinbrott-Kristianstad/",
+    "description": "Inbrott skola, Kristianstad",
+    "title": "2015-10-10 03:23, Stöld/inbrott, Kristianstad",
+    "Location": {
+      "lng": 14.1566778,
+      "lat": 56.0293936
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-2307-Ran-Malmo/",
+    "description": "Pojkar rånade, Limhamn.",
+    "title": "2015-10-09 23:07, Rån, Malmö",
+    "Location": {
+      "lng": 12.9147749,
+      "lat": 55.5724415
+      }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-2226-Trafikolycka-singel-Lund/",
+    "description": "Personbil kör av vägen, Flackarp.",
+    "title": "2015-10-09 22:26, Trafikolycka, singel, Lund",
+    "Location": {
+      "lng": 13.1294294,
+      "lat": 55.69203599999999
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-2158-Ran-vapnat-Malmo/",
+    "description": "Väpnat rån mot restaurang, Hyllie Boulevard.",
+    "title": "2015-10-09 21:58, Rån väpnat, Malmö",
+    "Location": {
+      "lng": 12.9749683,
+      "lat": 55.5640151
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-2020-Brand-Malmo/",
+    "description": "Brand i bil, Fosie.",
+    "title": "2015-10-09 20:20, Brand, Malmö",
+    "Location": {
+      "lng": 13.0215943,
+      "lat": 55.5666117
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-1914-Trafikolycka-singel-Malmo/",
+    "description": "Personbil kör in i trädgård, Hohög.",
+    "title": "2015-10-09 19:14, Trafikolycka, singel, Malmö",
+    "Location": {
+      "lng": 13.0634105,
+      "lat": 55.5936525
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-1704-Trafikolycka-Kristianstad/",
+    "description": "Två personbilar i kollision, E22 Vä.",
+    "title": "2015-10-09 17:04, Trafikolycka, Kristianstad",
+    "Location": {
+      "lng": 14.0941206,
+      "lat": 55.99213779999999
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-1616-Trafikolycka-Kristianstad/",
+    "description": "Flertal bilar i olycka, E22, Nöbbelöv. ",
+    "title": "2015-10-09 16:16, Trafikolycka, Kristianstad",
+    "Location": {
+      "lng": 14.0769281,
+      "lat": 55.97035289999999
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-1623-Ran-vapnat-Malmo/",
+    "description": "Butiksrån, Vattenverksvägen. ",
+    "title": "2015-10-09 16:23, Rån väpnat, Malmö",
+    "Location": {
+      "lng": 13.06064,
+      "lat": 55.60940979999999
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-1606-Trafikolycka-Malmo/",
+    "description": "Tre persobilar i krock, Agnesfridsvägen. ",
+    "title": "2015-10-09 16:06, Trafikolycka, Malmö",
+    "Location": {
+      "lng": 13.051079,
+      "lat": 55.56750539999999
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-1555-Ran-vapnat-Malmo/",
+    "description": "Värdetransport rånad, Nydalatorget.",
+    "title": "2015-10-09 15:55, Rån väpnat, Malmö",
+    "Location": {
+      "lng": 13.020638,
+      "lat": 55.5734577
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-1535-Trafikolycka-Malmo/",
+    "description": "Två personbilar i olycka, Inre ringvägen.",
+    "title": "2015-10-09 15:35, Trafikolycka, Malmö",
+    "Location": {
+      "lng": 13.0534786,
+      "lat": 55.5947256
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-1520-Trafikolycka-Bjuv/",
+    "description": "Moped och buss kolliderar, Pastorsgatan.",
+    "title": "2015-10-09 15:20, Trafikolycka, Bjuv",
+    "Location": {
+      "lng": 12.9509815,
+      "lat": 56.0090668
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-1415-Trafikolycka-Malmo/",
+    "description": "Två personbilar kolliderar, korsningen Knivgatan och Scheelegatan.",
+    "title": "2015-10-09 14:15, Trafikolycka, Malmö",
+    "Location": {
+      "lng": 13.0369836,
+      "lat": 55.59900390000001
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-1355-Trafikolycka-Osby/",
+    "description": "En lastbil och personbil kolliderar, väg 23.",
+    "title": "2015-10-09 13:55, Trafikolycka, Osby",
+    "Location": {
+      "lng": 13.9929413,
+      "lat": 56.3815355
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-0906-Brand-Lomma/",
+    "description": "Röklukt i villa, Bjärred.",
+    "title": "2015-10-09 09:06, Brand, Lomma",
+    "Location": {
+      "lng": 13.0289796,
+      "lat": 55.7173153
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-0609-Brand-Eslov/",
+    "description": "Villabrand, Berga.",
+    "title": "2015-10-09 06:09, Brand, Eslöv",
+    "Location": {
+      "lng": 13.3182201,
+      "lat": 55.841718
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-09-0556-Trafikolycka-Malmo/",
+    "description": "Cyklist påkörd, Sjöundaviadukten.",
+    "title": "2015-10-09 05:56, Trafikolycka, Malmö",
+    "Location": {
+      "lng": 13.0412496,
+      "lat": 55.61578429999999
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-08-1824-Inbrott-Hoor/",
+    "description": "Inbrott i villa, Höör.",
+    "title": "2015-10-08 18:24, Inbrott, Höör",
+    "Location": {
+      "lng": 13.5395904,
+      "lat": 55.9348588
+    }
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-10-08-2024-Trafikolycka-Svedala/",
+    "description": "Trafikolycka/singel, Vismarslövsvägen, Värby, Svedala.",
+    "title": "2015-10-08 20:24, Trafikolycka, Svedala",
+    "Location": {}
+  },
+  {
+    "link": "http://polisen.se/Aktuellt/Handelser/Skane/2015-01-04-0136-Stoldinbrott-Burlov/",
+    "description": "Två gripna efter inbrott, Arlöv.",
+    "title": "2015-01-04 01:36, Stöld/inbrott, Burlöv",
+    "Location": {
+      "lng": 13.0744097,
+      "lat": 55.6345009
+    }
+  }
+]
