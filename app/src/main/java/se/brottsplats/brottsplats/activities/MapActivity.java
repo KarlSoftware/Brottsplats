@@ -1,19 +1,3 @@
-/*
- * Copyright 2013 Google Inc.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 package se.brottsplats.brottsplats.activities;
 
 import android.app.ActionBar;
@@ -38,6 +22,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
+import com.google.maps.android.clustering.Cluster;
 import com.ikimuhendis.ldrawer.ActionBarDrawerToggle;
 
 import se.brottsplats.brottsplats.DownloadFileTask;
@@ -89,7 +74,9 @@ public class MapActivity extends FragmentActivity {
     private GoogleMap mMap;
     private CameraPosition cameraPosition;
     private HashMap<String, County> counties;
-    private String ipAddress = "http://192.168.1.10:4567";
+    private String ipAddress = "http://192.168.1.10:4567"; //todo ändra till serverns ip :)
+    private Cluster<MapMarker> clickedCluster;
+    boolean isCluster;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -149,9 +136,7 @@ public class MapActivity extends FragmentActivity {
         }
 
         if (mapMarkers != null) {
-            mClusterManager.addItems(mapMarkers);
-        } else {
-            mapMarkers = TestItems();
+            mClusterManager.clearItems();
             mClusterManager.addItems(mapMarkers);
         }
     }
@@ -159,8 +144,6 @@ public class MapActivity extends FragmentActivity {
     @Override
     protected void onPause() {
         super.onPause();
-//        cameraPosition = mMap.getCameraPosition();
-//        mMap = null;
     }
 
     /**
@@ -193,7 +176,6 @@ public class MapActivity extends FragmentActivity {
         actionBar.setTitle(header);
         LatLng latLng = new LatLng(savedInstanceState.getDouble("latitud"), savedInstanceState.getDouble("longitude"));
         cameraPosition = new CameraPosition(latLng, savedInstanceState.getFloat("zoom"), savedInstanceState.getFloat("tilt"), savedInstanceState.getFloat("bearing"));
-
         mapMarkers = savedInstanceState.getParcelableArrayList("mapmarkers");
         super.onRestoreInstanceState(savedInstanceState);
     }
@@ -231,44 +213,22 @@ public class MapActivity extends FragmentActivity {
         mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
         if (mMap != null) {
             mClusterManager = new ClusterManager<MapMarker>(this, getMap());
+
             mClusterManager.setRenderer(new ItemRenderer());
+
             getMap().setOnCameraChangeListener(mClusterManager);
-            getMap().setOnCameraChangeListener(mClusterManager);
-            getMap().setOnMarkerClickListener(mClusterManager);
-            getMap().setOnInfoWindowClickListener(mClusterManager);
+
+
             getMap().getUiSettings().setCompassEnabled(false);
             getMap().getUiSettings().setRotateGesturesEnabled(false);
             getMap().getUiSettings().setZoomControlsEnabled(true);
-            mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-                //todo inte visa någon inforuta när man trycker på ett kluster
-                @Override
-                public View getInfoWindow(Marker arg0) {
-                    return null;
-                }
 
-                @Override
-                public View getInfoContents(Marker marker) {
+            getMap().setInfoWindowAdapter(mClusterManager.getMarkerManager());
 
-                    LinearLayout info = new LinearLayout(getApplicationContext());
-                    info.setOrientation(LinearLayout.VERTICAL);
+            mClusterManager.getClusterMarkerCollection().setOnInfoWindowAdapter(new ClusterMarkerWindow());
+            mClusterManager.getMarkerCollection().setOnInfoWindowAdapter(new MarkerWindow());
 
-                    TextView title = new TextView(getApplicationContext());
-                    title.setTextColor(Color.BLACK);
-                    title.setGravity(Gravity.CENTER);
-                    title.setTypeface(null, Typeface.BOLD);
-                    title.setText(marker.getTitle());
-
-                    TextView snippet = new TextView(getApplicationContext());
-                    snippet.setGravity(Gravity.CENTER);
-                    snippet.setTextColor(Color.GRAY);
-                    snippet.setText(marker.getSnippet());
-
-                    info.addView(title);
-                    info.addView(snippet);
-
-                    return info;
-                }
-            });
+            getMap().setOnMarkerClickListener(mClusterManager);
         }
     }
 
@@ -277,7 +237,6 @@ public class MapActivity extends FragmentActivity {
         return mMap;
     }
 
-    //TODO Göra på något bra sätt så man slipper switch???
     public void setNavMenu() {
 
         final ArrayAdapter<String> menuAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, Values.MENU_VALUES);
@@ -296,8 +255,9 @@ public class MapActivity extends FragmentActivity {
                         header = "Brottsplats - " + county.getName();
                         LatLngBounds bounds = new LatLngBounds(county.getSouthwest(), county.getNortheast());
 
-                        getMap().animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 0));
                         mDrawerLayout.closeDrawer(GravityCompat.START);
+                        getMap().animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 0));
+                        downloadFile("/handelser");
                         break;
                     case 1:
                         setNavArea();
@@ -335,18 +295,15 @@ public class MapActivity extends FragmentActivity {
                     header = "Brottsplats - " + county.getName();
                     LatLngBounds bounds = new LatLngBounds(county.getSouthwest(), county.getNortheast());
 
-//                    AsyncTask<String, Integer, JSONArray> d = new DownloadFileTask().execute(ipAddress + county.getLink());
-
-//                    try {
-//                        JSONArray j = d.get();
-//                        for (int i = 0; i < j.length(); i++) {
-//
-//                            JSONObject obj = (JSONObject) j.get(i);
-//                            System.out.println(obj.getString("title"));
-//                        }
-//                    } catch (InterruptedException | JSONException | ExecutionException e) {
-//                        e.printStackTrace();
+                    // testa skånes län, läsa in fil med händelser.
+//                    if (county.getName().equals("Skånes län")) {
+//                        mClusterManager.clearItems();
+//                        mapMarkers = TestItems();
+//                        mClusterManager.addItems(mapMarkers);
 //                    }
+
+                    // hämta händelser från servern.
+                    downloadFile(county.getLink());
 
                     getMap().animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 0));
                     Toast.makeText(getApplicationContext(), county.getName() + "\n" + county.getLink(), Toast.LENGTH_SHORT).show();
@@ -359,17 +316,6 @@ public class MapActivity extends FragmentActivity {
 
             }
         });
-    }
-
-
-    private void printMap(HashMap<String, County> map) {
-        Iterator it = map.entrySet().iterator();
-        while (it.hasNext()) {
-            Map.Entry pair = (Map.Entry) it.next();
-            County county = (County) pair.getValue();
-            System.out.println(pair.getKey() + " = " + county.getName() + " nw: " + county.getNortheast().toString() + " sw: " + county.getSouthwest().toString());
-        }
-
     }
 
     private void readCountyBoundsFromFile() {
@@ -394,8 +340,45 @@ public class MapActivity extends FragmentActivity {
         }
     }
 
+    private void downloadFile(String area){
+        AsyncTask<String, Integer, JSONArray> downloadJSON = new DownloadFileTask().execute(ipAddress + area);
+        try {
+            JSONArray jsonArray = downloadJSON.get();
+            mClusterManager.clearItems();
+
+            mapMarkers = newMarkers(jsonArray);
+
+            mClusterManager.addItems(mapMarkers);
+
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private ArrayList<MapMarker> newMarkers(JSONArray jsonArray) {
+        ArrayList<MapMarker> mapMarkers = new ArrayList<MapMarker>();
+
+        for (int i = 0; i < jsonArray.length(); i++) {
+            try {
+                JSONObject object = jsonArray.getJSONObject(i);
+
+                JSONObject jsonLocation = object.getJSONObject("Location");
+
+                LatLng position = new LatLng(jsonLocation.getDouble("lat"), jsonLocation.getDouble("lng"));
+                String title = object.getString("title");
+                String body = object.getString("description");
+
+                mapMarkers.add(new MapMarker(position, title, body));
+            } catch (JSONException e) {
+                //felmeddelande?
+            }
+        }
+        return mapMarkers;
+    }
+
     /**
-     * för att testa. lägger till nya Item-objekt(som representerar markörer) i en arraylist.
+     * för att testa. lägger till nya MapMarker-objekt(som representerar markörer) i en arraylist.
+     * läser dessa från en fil.
      */
     private ArrayList<MapMarker> TestItems() {
         ArrayList<MapMarker> mapMarkers = new ArrayList<MapMarker>();
@@ -404,18 +387,19 @@ public class MapActivity extends FragmentActivity {
             String json = new Scanner(inputStream).useDelimiter("\\A").next();
             JSONArray array = new JSONArray(json);
             for (int i = 0; i < array.length(); i++) {
-                JSONObject object = array.getJSONObject(i);
+                try {
+                    JSONObject object = array.getJSONObject(i);
 
+                    JSONObject jsonLocation = object.getJSONObject("Location");
 
-                JSONObject jsonLocation = object.getJSONObject("Location");
-                LatLng position = new LatLng(jsonLocation.getDouble("lat"), jsonLocation.getDouble("lng"));
+                    LatLng position = new LatLng(jsonLocation.getDouble("lat"), jsonLocation.getDouble("lng"));
+                    String title = object.getString("title");
+                    String body = object.getString("description");
 
-
-                String title = object.getString("title");
-                String body = object.getString("description");
-
-                mapMarkers.add(new MapMarker(position, title, body));
-
+                    mapMarkers.add(new MapMarker(position, title, body));
+                } catch (JSONException e) {
+                    //felmeddelande?
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -436,12 +420,121 @@ public class MapActivity extends FragmentActivity {
         return new Random().nextDouble() * (max - min) + min;
     }
 
+
     /**
-     * Privat klass för att ändra markören på kartan, dvs lägga till en inforuta.
+     * Privat klass för att ändra markörens inforuta,
+     */
+    private class MarkerWindow implements GoogleMap.InfoWindowAdapter{
+
+        @Override
+        public View getInfoWindow(Marker marker) {
+            return null;
+        }
+
+        @Override
+        public View getInfoContents(Marker marker) {
+            System.out.println("MARKER::: ");
+            LinearLayout info = new LinearLayout(getApplicationContext());
+            info.setOrientation(LinearLayout.VERTICAL);
+
+            TextView title = new TextView(getApplicationContext());
+            title.setTextColor(Color.BLACK);
+            title.setGravity(Gravity.CENTER);
+            title.setTypeface(null, Typeface.BOLD);
+            title.setText(marker.getTitle());
+
+            TextView snippet = new TextView(getApplicationContext());
+            snippet.setGravity(Gravity.CENTER);
+            snippet.setTextColor(Color.GRAY);
+            snippet.setText(marker.getSnippet());
+
+            info.addView(title);
+            info.addView(snippet);
+            return info;
+        }
+    }
+
+    /**
+     * Privat klass för att ändra Cluster markörens inforuta,
+     */
+    private class ClusterMarkerWindow implements GoogleMap.InfoWindowAdapter{
+
+        @Override
+        public View getInfoWindow(Marker marker) {
+            return null;
+        }
+
+        @Override
+        public View getInfoContents(Marker marker) {
+            System.out.println("CLUSTER::: ");
+            System.out.println("ZOOM: " + getMap().getCameraPosition().zoom);
+
+            if (clickedCluster != null && (getMap().getCameraPosition().zoom >= 15 || clickedCluster.getSize()<=4)) {
+                LinearLayout info = new LinearLayout(getApplicationContext());
+                for (MapMarker obj : clickedCluster.getItems()) {
+                    info.setOrientation(LinearLayout.VERTICAL);
+
+                    TextView title = new TextView(getApplicationContext());
+                    title.setTextColor(Color.BLACK);
+                    title.setGravity(Gravity.CENTER);
+                    title.setTypeface(null, Typeface.BOLD);
+                    title.setText(obj.getTitle());
+
+                    TextView snippet = new TextView(getApplicationContext());
+                    snippet.setGravity(Gravity.CENTER);
+                    snippet.setTextColor(Color.GRAY);
+                    snippet.setText(obj.getDescription());
+
+                    info.addView(title);
+                    info.addView(snippet);
+                }
+                return info;
+            } else {
+                return null;
+            }
+        }
+    }
+
+
+    /**
+     * Privat klass för att ändra kluster/markören på kartan, tex lägga till en inforuta.
      */
     private class ItemRenderer extends DefaultClusterRenderer<MapMarker> {
         public ItemRenderer() {
             super(getApplicationContext(), getMap(), mClusterManager);
+        }
+
+        @Override
+        protected boolean shouldRenderAsCluster(final Cluster<MapMarker> cluster) {
+            //när det ska renderas som ett cluster
+            isCluster = cluster.getSize() >= 4;
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        if (mMap.getCameraPosition().zoom >= 15) {
+                            isCluster = cluster.getSize() >= 2;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
+            return isCluster;
+
+        }
+
+        @Override
+        public void setOnClusterClickListener(ClusterManager.OnClusterClickListener<MapMarker> listener) {
+            super.setOnClusterClickListener(
+                    new ClusterManager.OnClusterClickListener<MapMarker>() {
+                        @Override
+                        public boolean onClusterClick(Cluster<MapMarker> cluster) {
+                            clickedCluster = cluster; // för att komma ihåg vilket cluster som är klickat på.
+                            return false;
+                        }
+                    }
+            );
         }
 
         @Override
