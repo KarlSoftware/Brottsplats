@@ -131,7 +131,6 @@ public class MapActivity extends FragmentActivity {
             getMap().moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             cameraPosition = null;
         } else {
-
             getMap().moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(62.99639794287849, 17.56499793380499), 5));
         }
 
@@ -257,7 +256,7 @@ public class MapActivity extends FragmentActivity {
 
                         mDrawerLayout.closeDrawer(GravityCompat.START);
                         getMap().animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 0));
-                        downloadFile("/handelser");
+                        downloadFile("/events");
                         break;
                     case 1:
                         setNavArea();
@@ -305,8 +304,8 @@ public class MapActivity extends FragmentActivity {
                     // hämta händelser från servern.
                     downloadFile(county.getLink());
 
-                    getMap().animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 0));
-                    Toast.makeText(getApplicationContext(), county.getName() + "\n" + county.getLink(), Toast.LENGTH_SHORT).show();
+                    getMap().animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 50));
+                    Toast.makeText(getApplicationContext(), county.getName() + "\n" + ipAddress + county.getLink(), Toast.LENGTH_SHORT).show();
 
                     mDrawerLayout.closeDrawer(GravityCompat.START);
                 } else {
@@ -320,33 +319,40 @@ public class MapActivity extends FragmentActivity {
 
     private void readCountyBoundsFromFile() {
         try {
-            InputStream inputStream = getResources().openRawResource(R.raw.counties_geocode_bounds);
             HashMap<String, County> items = new HashMap<>();
+
+            InputStream inputStream = getResources().openRawResource(R.raw.counties_geocode_bounds);
             String json = new Scanner(inputStream).useDelimiter("\\A").next();
-            JSONArray array = new JSONArray(json);
-            for (int i = 0; i < array.length(); i++) {
-                JSONObject object = array.getJSONObject(i);
-                String county = object.getString("county");
-                String link = object.getString("link");
-                JSONObject tmp = object.getJSONObject("southwest");
-                LatLng southwest = new LatLng(tmp.getDouble("lat"), tmp.getDouble("lng"));
-                object = object.getJSONObject("northeast");
-                LatLng northeast = new LatLng(object.getDouble("lat"), object.getDouble("lng"));
-                items.put(county, new County(county, link, southwest, northeast));
+
+            JSONObject jsonObject = new JSONObject(json);
+
+            if (jsonObject.get("status").equals("OK")){
+                JSONArray jsonArray = (JSONArray)jsonObject.get("counties");
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    JSONObject object = jsonArray.getJSONObject(i);
+                    String county = object.getString("county");
+                    String link = object.getString("link");
+                    JSONObject tmp = object.getJSONObject("southwest");
+                    LatLng southwest = new LatLng(tmp.getDouble("lat"), tmp.getDouble("lng"));
+                    object = object.getJSONObject("northeast");
+                    LatLng northeast = new LatLng(object.getDouble("lat"), object.getDouble("lng"));
+                    items.put(county, new County(county, link, southwest, northeast));
+                }
+                this.counties = items;
             }
-            this.counties = items;
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     private void downloadFile(String area){
-        AsyncTask<String, Integer, JSONArray> downloadJSON = new DownloadFileTask().execute(ipAddress + area);
+        AsyncTask<String, Integer, JSONObject> downloadJSON = new DownloadFileTask().execute(ipAddress + area);
         try {
-            JSONArray jsonArray = downloadJSON.get();
+            JSONObject jsonObject = downloadJSON.get();
             mClusterManager.clearItems();
 
-            mapMarkers = newMarkers(jsonArray);
+            mapMarkers = newMarkers(jsonObject);
 
             mClusterManager.addItems(mapMarkers);
 
@@ -355,23 +361,31 @@ public class MapActivity extends FragmentActivity {
         }
     }
 
-    private ArrayList<MapMarker> newMarkers(JSONArray jsonArray) {
+    private ArrayList<MapMarker> newMarkers(JSONObject jsonObject) {
         ArrayList<MapMarker> mapMarkers = new ArrayList<MapMarker>();
+        try {
+            if (jsonObject.get("status").equals("OK")) {
+                JSONArray jsonArray = jsonObject.getJSONArray("events");
+                for (int i = 0; i < jsonArray.length(); i++) {
+                    try {
+                        JSONObject object = jsonArray.getJSONObject(i);
+                        JSONObject jsonLocation = object.getJSONObject("Location");
 
-        for (int i = 0; i < jsonArray.length(); i++) {
-            try {
-                JSONObject object = jsonArray.getJSONObject(i);
+                        LatLng position = new LatLng(jsonLocation.getDouble("lat"), jsonLocation.getDouble("lng"));
+                        String title = object.getString("title");
+                        String body = object.getString("description");
 
-                JSONObject jsonLocation = object.getJSONObject("Location");
-
-                LatLng position = new LatLng(jsonLocation.getDouble("lat"), jsonLocation.getDouble("lng"));
-                String title = object.getString("title");
-                String body = object.getString("description");
-
-                mapMarkers.add(new MapMarker(position, title, body));
-            } catch (JSONException e) {
-                //felmeddelande?
+                        mapMarkers.add(new MapMarker(position, title, body));
+                    } catch (JSONException e) {
+                        //felmeddelande?
+                    }
+                }
+            } else if (jsonObject.get("status").equals("NOT FOUND")){
+                Toast.makeText(getApplicationContext(), "NOT FOUND", Toast.LENGTH_SHORT).show();
             }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
         return mapMarkers;
     }

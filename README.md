@@ -26,7 +26,7 @@ Ladda hem både app och backend:
 
 ##### [Brottsplats](https://github.com/JimmyMaksymiw/Brottsplats)
 1. Importera paketet Brottsplats i din IDE, förslagsvis Android Studio.
-2. Starta en Android emulator som kör minst API Level: 15.
+2. Starta en Android emulator som kör minst API Level: 15 och minst har Google Play services 8.
 3. Starta programmet genom MainActivity.java
 
 ### Användarmanual

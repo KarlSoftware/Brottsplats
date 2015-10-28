@@ -6,8 +6,8 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.json.JSONArray;
 import org.apache.http.HttpEntity;
+import org.json.JSONObject;
 
 
 import java.io.BufferedReader;
@@ -23,10 +23,10 @@ import java.io.UnsupportedEncodingException;
  */
 public class JSONReader {
 
-    public static JSONArray getJSONFromUrl(String url) {
+    public static JSONObject getJSONFromUrl(String url) {
 
         InputStream is = null;
-        JSONArray jsonArray = new JSONArray();
+        JSONObject jsonObject = new JSONObject();
         String json = "";
 
         try {
@@ -51,10 +51,10 @@ public class JSONReader {
             }
             is.close();
             json = sb.toString();
-            jsonArray = new JSONArray(json);
+            jsonObject = new JSONObject(json);
         } catch (Exception e) {
             Log.e("Buffer Error", "Error converting result " + e.toString());
         }
-        return jsonArray;
+        return jsonObject;
     }
 }
