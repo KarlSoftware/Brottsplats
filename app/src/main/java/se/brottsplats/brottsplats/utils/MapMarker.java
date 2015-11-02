@@ -24,6 +24,7 @@ import com.google.maps.android.clustering.ClusterItem;
 
 /**
  * Klass som representerar en markör som visar på kartan. Dena markör innehåller geokoder, title och beskrivning.
+ *
  * @author Jimmy Maksymiw
  */
 public class MapMarker implements ClusterItem, Parcelable {
@@ -31,29 +32,46 @@ public class MapMarker implements ClusterItem, Parcelable {
     private String title = "Title";
     private String description = "Description";
 
-    public MapMarker(double lat, double lng) {
-        mPosition = new LatLng(lat, lng);
-    }
-
+    /**
+     * Konstruktor som tar emot information om en markör.
+     *
+     * @param latLng      Koordinater för markören.
+     * @param title       Rubrik som ska användas i inforutan.
+     * @param description Text om vad som har hänt, beskrivning som ska användas i inforutan.
+     */
     public MapMarker(LatLng latLng, String title, String description) {
         this.mPosition = latLng;
-        this.title=title;
+        this.title = title;
         this.description = description;
     }
 
-    @Override
+    /**
+     * Metod som returnerar koordinater för markören.
+     *
+     * @return Koordinater för markören.
+     */
     public LatLng getPosition() {
         return mPosition;
     }
 
+    /**
+     * Metod som returnerar rubriken för inforutan.
+     *
+     * @return rubriken för inforutan.
+     */
     public String getTitle() {
         return title;
     }
 
+    /**
+     * Metod som returnerar en text om vad som har hänt (används i inforutan).
+     * @return Den beskrivande text som ska visas i inforutan.
+     */
     public String getDescription() {
         return description;
     }
 
+    // Parcelable används för att kunna spara information om användaren tex vänder på skärmen så att aktiviteten startar om.
 
     @Override
     public int describeContents() {

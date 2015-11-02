@@ -1,6 +1,8 @@
 package se.brottsplats.brottsplats.utils;
 
 /**
+ * Klass som representerar de olika menyvalen i applikationen.
+ *
  * @author Jimmy Maksymiw
  */
 public class Values {

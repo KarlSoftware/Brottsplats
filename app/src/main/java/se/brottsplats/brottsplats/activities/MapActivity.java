@@ -41,8 +41,6 @@ import android.widget.Toast;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
@@ -78,6 +76,11 @@ public class MapActivity extends FragmentActivity {
     private Cluster<MapMarker> clickedCluster;
     boolean isCluster;
 
+    /**
+     * Metod som körs när applikationen startar eller när Aktiviteten startas om.
+     *
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -204,6 +207,9 @@ public class MapActivity extends FragmentActivity {
     }
 
 
+    /**
+     * metod för att skapa och initiera Google-map objekt som visar kartan.
+     */
     private void setUpMapIfNeeded() {
         if (mMap != null) {
             return;
@@ -236,6 +242,9 @@ public class MapActivity extends FragmentActivity {
         return mMap;
     }
 
+    /**
+     * Metod för att skapa en sidomeny.
+     */
     public void setNavMenu() {
 
         final ArrayAdapter<String> menuAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, Values.MENU_VALUES);
@@ -244,9 +253,7 @@ public class MapActivity extends FragmentActivity {
 
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
                 Toast.makeText(getApplicationContext(), menuAdapter.getItem(position), Toast.LENGTH_SHORT).show();
-
 
                 switch (position) {
                     case 0:
@@ -281,6 +288,9 @@ public class MapActivity extends FragmentActivity {
         });
     }
 
+    /**
+     * Metod för att skapa en sidomeny med de olika Länen som val.
+     */
     public void setNavArea() {
 
         final ArrayAdapter<String> areaAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, Values.MENU_VALUES_AREAS);
@@ -317,6 +327,10 @@ public class MapActivity extends FragmentActivity {
         });
     }
 
+    /**
+     * Metod som används för att läsa in counties_geocode_bounds.json istället för att ladda hem det.
+     * Detta skapar grunden för den lokala menyn.
+     */
     private void readCountyBoundsFromFile() {
         try {
             HashMap<String, County> items = new HashMap<>();
@@ -326,8 +340,8 @@ public class MapActivity extends FragmentActivity {
 
             JSONObject jsonObject = new JSONObject(json);
 
-            if (jsonObject.get("status").equals("OK")){
-                JSONArray jsonArray = (JSONArray)jsonObject.get("counties");
+            if (jsonObject.get("status").equals("OK")) {
+                JSONArray jsonArray = (JSONArray) jsonObject.get("counties");
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
                     String county = object.getString("county");
@@ -346,7 +360,12 @@ public class MapActivity extends FragmentActivity {
         }
     }
 
-    private void downloadFile(String area){
+    /**
+     * Metod som anropas för att ladda hem nya händelser.
+     *
+     * @param area det område som händelserna ska vara ifrån.
+     */
+    private void downloadFile(String area) {
         AsyncTask<String, Integer, JSONObject> downloadJSON = new DownloadFileTask().execute(ipAddress + area);
         try {
             JSONObject jsonObject = downloadJSON.get();
@@ -361,6 +380,12 @@ public class MapActivity extends FragmentActivity {
         }
     }
 
+    /**
+     * Används för att skapa en ArrayList av MapMarker-objekt från ett JSON-objekt (som blivit nedladdat).
+     *
+     * @param jsonObject Det JSON-objekt som ska bli en ArrayList.
+     * @return ArrayList innehållande MapMarker-objekt.
+     */
     private ArrayList<MapMarker> newMarkers(JSONObject jsonObject) {
         ArrayList<MapMarker> mapMarkers = new ArrayList<MapMarker>();
         try {
@@ -380,7 +405,7 @@ public class MapActivity extends FragmentActivity {
                         //felmeddelande?
                     }
                 }
-            } else if (jsonObject.get("status").equals("NOT FOUND")){
+            } else if (jsonObject.get("status").equals("NOT FOUND")) {
                 Toast.makeText(getApplicationContext(), "NOT FOUND", Toast.LENGTH_SHORT).show();
             }
 
@@ -438,16 +463,19 @@ public class MapActivity extends FragmentActivity {
     /**
      * Privat klass för att ändra markörens inforuta,
      */
-    private class MarkerWindow implements GoogleMap.InfoWindowAdapter{
+    private class MarkerWindow implements GoogleMap.InfoWindowAdapter {
 
         @Override
         public View getInfoWindow(Marker marker) {
             return null;
         }
 
+        /**
+         * Anväds för att visa en info ruta
+         */
         @Override
         public View getInfoContents(Marker marker) {
-            System.out.println("MARKER::: ");
+//            System.out.println("MARKER::: ");
             LinearLayout info = new LinearLayout(getApplicationContext());
             info.setOrientation(LinearLayout.VERTICAL);
 
@@ -471,19 +499,22 @@ public class MapActivity extends FragmentActivity {
     /**
      * Privat klass för att ändra Cluster markörens inforuta,
      */
-    private class ClusterMarkerWindow implements GoogleMap.InfoWindowAdapter{
+    private class ClusterMarkerWindow implements GoogleMap.InfoWindowAdapter {
 
         @Override
         public View getInfoWindow(Marker marker) {
             return null;
         }
 
+        /**
+         * Anväds för att visa en info ruta om zoom >=15 eller att ett kluster <=4.
+         */
         @Override
         public View getInfoContents(Marker marker) {
-            System.out.println("CLUSTER::: ");
-            System.out.println("ZOOM: " + getMap().getCameraPosition().zoom);
+//            System.out.println("CLUSTER ");
+//            System.out.println("ZOOM: " + getMap().getCameraPosition().zoom);
 
-            if (clickedCluster != null && (getMap().getCameraPosition().zoom >= 15 || clickedCluster.getSize()<=4)) {
+            if (clickedCluster != null && (getMap().getCameraPosition().zoom >= 15 || clickedCluster.getSize() <= 4)) {
                 LinearLayout info = new LinearLayout(getApplicationContext());
                 for (MapMarker obj : clickedCluster.getItems()) {
                     info.setOrientation(LinearLayout.VERTICAL);
@@ -518,6 +549,9 @@ public class MapActivity extends FragmentActivity {
             super(getApplicationContext(), getMap(), mClusterManager);
         }
 
+        /**
+         * Används för att välja om markörerna ska visas som ett kluster eller inte.
+         */
         @Override
         protected boolean shouldRenderAsCluster(final Cluster<MapMarker> cluster) {
             //när det ska renderas som ett cluster
@@ -538,6 +572,9 @@ public class MapActivity extends FragmentActivity {
 
         }
 
+        /**
+         * Om användaren klickar på ett kluster.
+         */
         @Override
         public void setOnClusterClickListener(ClusterManager.OnClusterClickListener<MapMarker> listener) {
             super.setOnClusterClickListener(
@@ -551,6 +588,9 @@ public class MapActivity extends FragmentActivity {
             );
         }
 
+        /**
+         * Sparar title och description för en markör.
+         */
         @Override
         protected void onBeforeClusterItemRendered(MapMarker mapMarker, MarkerOptions markerOptions) {
             markerOptions.title(mapMarker.getTitle());

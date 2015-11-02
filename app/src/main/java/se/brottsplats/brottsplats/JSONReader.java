@@ -17,7 +17,7 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
 /**
- * Klass för att läsa JSONdata
+ * Klass som används för att läsa skapa ett JSON-objekt av det som blir nedladdat.
  *
  * @author Jimmy Maksymiw
  */

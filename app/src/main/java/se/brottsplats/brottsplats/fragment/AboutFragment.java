@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import se.brottsplats.brottsplats.R;
 
 /**
+ * Används för att visa information om projektet.
+ *
  * @author Jimmy Maksymiw
  */
 public class AboutFragment extends Fragment {

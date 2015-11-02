@@ -34,8 +34,7 @@ public class DownloadFileTask extends AsyncTask<String, Integer, JSONObject> {
 
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
-        System.out.println("\n\n\nJSON-Array nerladdad. KLART!!!");
-
+//        System.out.println("\n\n\nJSON-Array nerladdad. KLART!!!");
         super.onPostExecute(jsonObject);
     }
 }
