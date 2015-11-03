@@ -72,7 +72,8 @@ public class MapActivity extends FragmentActivity {
     private GoogleMap mMap;
     private CameraPosition cameraPosition;
     private HashMap<String, County> counties;
-    private String ipAddress = "http://192.168.1.10:4567"; //todo ändra till serverns ip :)
+//    private String ipAddress = "http://192.168.1.10:4567"; //todo ändra till serverns ip :)
+    private String ipAddress = "http://95.109.70.219:4567"; //todo ändra till serverns ip :)
     private Cluster<MapMarker> clickedCluster;
     boolean isCluster;
 
@@ -312,7 +313,20 @@ public class MapActivity extends FragmentActivity {
 //                    }
 
                     // hämta händelser från servern.
-                    downloadFile(county.getLink());
+                    AsyncTask<String, Integer, JSONObject> downloadJSON = new DownloadFileTask().execute(ipAddress + county.getLink());
+                    try {
+                        JSONObject jsonObject = downloadJSON.get();
+                        mClusterManager.clearItems();
+
+                        mapMarkers = newMarkers(jsonObject);
+
+                        mClusterManager.addItems(mapMarkers);
+
+                    } catch (InterruptedException | ExecutionException e) {
+                        e.printStackTrace();
+                    }
+
+//                    downloadFile(county.getLink());
 
                     getMap().animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 50));
                     Toast.makeText(getApplicationContext(), county.getName() + "\n" + ipAddress + county.getLink(), Toast.LENGTH_SHORT).show();
