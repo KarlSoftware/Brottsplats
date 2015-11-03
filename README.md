@@ -2,6 +2,7 @@
 ###Projekt för Datavetenskap: Storskaliga webbtjänster (DA358A)
 
 Jimmy Maksymiw, 19891031.
+
 Emil Sandgren, 19941224.
 
 Android appen fungerar endast tillsammans med tillhörande backend,
