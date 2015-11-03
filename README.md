@@ -45,6 +45,10 @@ API:et används genom att anropa dessa URI:
   * Används för att få information om de olilka länen i Sverige. 
   * Returnerar ett JSON-Objekt med status och en array med JSON-objekt som innehåller länets namn, en URI(för att hämta händelser), och koordinater med länets gränser för att kunna visa hela länet på en karta.
 
+API-dokumentationen är gjord med hjälp av [apiary](https://apiary.io/).
+
+[API-dokumentationen hittas här](http://docs.brottsplats.apiary.io/)
+
 #### Frontend
 
 Android-applikation som använder sig av API:et för att hämta händelsarna.
@@ -67,4 +71,10 @@ Ladda hem både app och backend:
 2. Starta en Android emulator som kör minst API Level: 15 och minst har Google Play services 8.
 3. Starta programmet genom MainActivity.java
 
-### Användarmanual
+### Användarmanual (Android)
+1. Tryck på menyknappen uppe i vänster hörn.
+2. Välj 'Hela Sverige' för att se händelser i hela sverige. 
+3. Välj 'Lokala händelser' för att komma till en ny meny med Sveriges län. 
+4. Välj valfritt län för att se händelser i just detta län.
+
+
